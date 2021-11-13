@@ -15,7 +15,7 @@ if g==1:
     print('已教了:','s')
     print('時間:','t')
     print('離開:','o')
-    print('說話:','a,x')
+    print('說話:','x')
     w=input('以閱讀完成請按enter，喵')
 while True:
      e=str(input("輸入"))
@@ -36,7 +36,7 @@ while True:
          
          for i,j in ex.items():
              
-             print('你說:',j,'喵說:',i)
+             print('你說:',i,'喵說:',j)
      if e=='o':
          
          print("再見!喵!")
