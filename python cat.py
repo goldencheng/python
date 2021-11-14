@@ -22,7 +22,7 @@ if g==1:
 while True:
      e=str(input("輸入"))
      o.sleep(1)
-     if e=="talk":
+     if e=="time":
          print(o.asctime())
      if e =='learn':
           f=str(input("喵?"))
