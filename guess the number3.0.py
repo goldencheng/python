@@ -12,6 +12,7 @@ pp=int(input('chance~'))
 import random
 SECRET1=random.randint(ppo,q)
 print('        ')
+
 EEEE = q
 print('guess a numbur',end='')
 print(ppo,end='')
@@ -37,27 +38,12 @@ if SECRET1==ans:
    print('you win!')
    print('anser is ',end='')
    print(SECRET1)
+   print()
 else:
    print('you lose!')
    print('anser is ',end='')
    print(SECRET1)
-        
-        
-    
 
-          
-            
-             
-    
-        
-    
-    
-    
-    
-             
-        
-            
-        
             
            
     

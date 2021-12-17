@@ -8,14 +8,14 @@ to input a number until he/she gets it
 """
 
 # This number controls when to stop the game
-SECRET1 = 82
-EEEE = 99
-print('guess a numbur 0-99')
+SECRET1 = 10
+EEEE = 100
+print('guess a numbur 0-100')
 def main():
     ans = int(input('guess'))
     while SECRET1 != ans:
         if ans > EEEE:
-            print('out of 99')
+            print('out of 100 and ')
         if ans > SECRET1:
             print('too big!')
         if ans < SECRET1:

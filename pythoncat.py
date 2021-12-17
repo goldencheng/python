@@ -4,18 +4,12 @@ Created on Sat Nov 13 14:29:50 2021
 
 @author: twson
 """
-yu=open('eee.txt',"w")
-yu=open('eee.txt',"r")
-rrr=yu.read()
-rrr=rrr.split(':')
-print(rrr)
-yu.close()
+file=open('eee.txt','r')
+file=file.read()
+
 ex={}
 
-   
-   
-
-  
+print(ex)
 import os.path as q
 import time as o
 print('我是PYTHON CAT 1.0,喵!',end='')
@@ -41,13 +35,14 @@ while True:
      elif e =='learn':
           f=str(input("喵?"))
           o.sleep(1)
-          if f not in ex:
+          
+          if f in file or f in ex:
+               print("喵，我學過了!")
+               
+          else:
                t=str(input("喵?"))
                ex[f]=t
                print('喵!知道了!')
-               
-          else:
-               print("喵，我學過了!")
      elif e=='teach':
          for i,j in ex.items():
              print('你說:',i,'喵說:',j)
@@ -96,13 +91,11 @@ while True:
           if not q.isfile('eee.txt'):
               popo=open('eee.txt','w')
           else:
-              popo=open('eee.txt','w')
+              popo=open('eee.txt','a')
           for i,j in ex.items():
-              print(i,j)
               popo.write(i)
-              popo.write(":")
+              popo.write(':')
               popo.write(j)
-          popo.write(";")    
           popo.close()
               
      else:

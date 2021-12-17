@@ -1,0 +1,127 @@
+
+13:56:21  瑄瑄老師 對 所有人:
+	https://drive.google.com/drive/u/0/folders/16vd3VV63etK6j8EHE7XlXK_P69LCeV3k
+13:58:06  瑄瑄老師 對 所有人:
+	使用者在1-20之間猜個數字，若比答案大，則告知太大，若比答案小，則告知太小只能猜五次，五次猜完沒猜到就輸掉這場遊戲，猜對後告訴使用者“玩了幾次”。
+	下次上課前將檔案寄給老師
+	寫不出來或有任何問題可請教老師
+14:02:38  晏磊 對 所有人:
+	我的功課
+14:25:19  瑄瑄老師 對 所有人:
+	import random
+	i=0
+	抽籤=random.randint(1,20)
+	print(抽籤)
+	while i<5:
+	    輸入=int(input("數字:"))
+	    i=i+1
+	    if 輸入>抽籤:
+	        if i==5:
+	            print("猜五次了")
+	        else:
+	            print("too big")
+	    elif 輸入<抽籤:
+	        if i==5:
+	            print("猜五次了")
+	        else:
+	            print("too small")
+	    else:
+	        print(i,"次")
+	        break
+14:34:17  瑄瑄老師 對 所有人:
+	for i in [1,2,3,4,'hi']:
+	    print(i)
+	    
+	for i in "ABC":
+	    print(i)
+14:36:08  晏磊 對 所有人:
+	for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)for i in "ABC":
+	    print(i)
+14:38:09  瑄瑄老師 對 所有人:
+	for i in range(100):
+	    print(i)
+14:43:14  瑄瑄老師 對 所有人:
+	for i in range(5,10):
+	    print(i)
+14:48:35  瑄瑄老師 對 所有人:
+	for i in range(1,10,3):
+	    print(i)
+	print('\n') 
+	for i in range(10,2,-1):
+	    print(i)
+14:56:15  瑄瑄老師 對 所有人:
+	用for loop印出1~50當中3的倍數
+14:56:34  瑄瑄老師 對 所有人:
+	想想看，要如何找出3的倍數。
+	提示：算數運算子的%
+15:08:47  瑄瑄老師 對 所有人:
+	i=1
+	while i<6:
+	    print(i*'*')
+	    i+=1
+15:12:33  瑄瑄老師 對 所有人:
+	i=1
+	while i<6:
+	    print(i*'*')
+	    #i+=1
+	    i=i+1
+	    
+	j=0
+	while j<5:
+	    j=j+1
+	    print(j*'*')
+15:14:52  瑄瑄老師 對 所有人:
+	for i in range(1,6):
+	    print(i*'*')
+15:16:00  瑄瑄老師 對 所有人:
+	想想看，如果要印出左邊的倒星星塔，可以怎麼設計程式？
+15:24:51  瑄瑄老師 對 所有人:
+	#for星星塔
+	for i in range(5,0,-1):
+	    print(i*'*')
+	
+	#取3的倍數
+	for i in range(1,51):
+	    if i % 3 ==0:
+	        print(i)
+	
+	#while星星塔
+	n=5
+	while n>0:
+	    print('*'*n)
+	    n-=1
