@@ -1,0 +1,33 @@
+import spacy
+import random
+
+# 加載英語語言模型
+nlp = spacy.load('en_core_web_sm')
+
+# 定義回答列表
+greetings = ["hi", "hello", "hey", "greetings", "yo"]
+goodbyes = ["bye", "goodbye", "see you later", "take care"]
+thanks = ["thanks", "thank you", "appreciate it", "grateful"]
+questions = ["what", "who", "where", "when", "why", "how"]
+
+# 定義回應函數
+def respond(message):
+    doc = nlp(message)
+
+    # 檢查用戶問題的類型，並回答相應的內容
+    if doc[0].text.lower() in greetings:
+        return random.choice(["Hi there!", "Hello!", "Hey!"])
+    elif doc[0].text.lower() in goodbyes:
+        return random.choice(["Goodbye!", "See you later!", "Take care!"])
+    elif doc[0].text.lower() in thanks:
+        return random.choice(["You're welcome!", "No problem!", "My pleasure!"])
+    elif doc[0].text.lower() in questions:
+        return random.choice(["I'm not sure, could you please clarify?", "That's a good question, let me look it up.", "I think the answer is..."])
+
+    # 如果沒有找到對應的回答，則隨機返回一個默認回答
+    return random.choice(["Sorry, I didn't understand that.", "I'm not sure what you mean.", "Could you please rephrase that?"])
+
+# 主程序
+while True:
+    message = input("You can chat with me here: ")
+    print(respond(message))
