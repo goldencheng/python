@@ -1,0 +1,78 @@
+import tensorflow as tf
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras import layers, models
+import matplotlib.pyplot as plt
+
+# 設定圖片大小和訓練參數
+img_size = 150  # 圖片大小
+batch_size = 32  # 批量大小
+epochs = 10  # 訓練輪數
+
+# 資料集路徑（你可以將資料集放在這裡，這裡假設有一個 train 目錄）
+train_dir = 'path_to_train_data'  # 替換為你的訓練資料集路徑
+validation_dir = 'path_to_validation_data'  # 替換為你的驗證資料集路徑
+
+# 圖片預處理和增強
+train_datagen = ImageDataGenerator(
+    rescale=1./255,  # 規範化像素值
+    rotation_range=40,  # 隨機旋轉角度
+    width_shift_range=0.2,  # 水平平移
+    height_shift_range=0.2,  # 垂直平移
+    shear_range=0.2,  # 剪切強度
+    zoom_range=0.2,  # 隨機縮放
+    horizontal_flip=True,  # 隨機水平翻轉
+    fill_mode='nearest'  # 填充模式
+)
+
+validation_datagen = ImageDataGenerator(rescale=1./255)
+
+train_generator = train_datagen.flow_from_directory(
+    train_dir,
+    target_size=(img_size, img_size),  # 調整圖片大小
+    batch_size=batch_size,
+    class_mode='binary'  # 二分類：貓或狗
+)
+
+validation_generator = validation_datagen.flow_from_directory(
+    validation_dir,
+    target_size=(img_size, img_size),
+    batch_size=batch_size,
+    class_mode='binary'
+)
+
+# 建立簡單的卷積神經網絡（CNN）模型
+model = models.Sequential([
+    layers.Conv2D(32, (3, 3), activation='relu', input_shape=(img_size, img_size, 3)),
+    layers.MaxPooling2D(2, 2),
+    layers.Conv2D(64, (3, 3), activation='relu'),
+    layers.MaxPooling2D(2, 2),
+    layers.Conv2D(128, (3, 3), activation='relu'),
+    layers.MaxPooling2D(2, 2),
+    layers.Flatten(),
+    layers.Dense(512, activation='relu'),
+    layers.Dense(1, activation='sigmoid')  # 輸出層，二分類
+])
+
+# 編譯模型
+model.compile(loss='binary_crossentropy',
+              optimizer='adam',
+              metrics=['accuracy'])
+
+# 訓練模型
+history = model.fit(
+    train_generator,
+    steps_per_epoch=train_generator.samples // batch_size,
+    epochs=epochs,
+    validation_data=validation_generator,
+    validation_steps=validation_generator.samples // batch_size
+)
+
+# 顯示訓練過程中的準確度和損失
+plt.plot(history.history['accuracy'], label='訓練準確度')
+plt.plot(history.history['val_accuracy'], label='驗證準確度')
+plt.title('訓練和驗證準確度')
+plt.legend()
+plt.show()
+
+# 儲存模型
+model.save('cat_dog_classifier.h5')
